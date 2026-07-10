@@ -141,3 +141,11 @@ country_event = {
 
 	immediate = { change_variable = { which = variable_AT_AR_OM_ExtraConvert value = 1 } }
 }
+
+country_event = {
+	id = event_AT_AR_OM_merge.3
+	hide_window = yes 
+	is_triggered_only = yes
+
+	immediate = { set_variable = { which = variable_AT_AR_OM_ExtraConvert value = 0 } }
+}

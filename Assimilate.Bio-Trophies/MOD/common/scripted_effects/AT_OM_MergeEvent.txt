@@ -8,7 +8,7 @@ MergePops = {
         set_variable = {which = variable_AT_AR_OM_ToKill value = planet.variable_AT_AR_OM_MergeMaximum}
     }
     # Pop group may not be fully converted
-    else {
+    else = {
         set_variable = { which = variable_AT_AR_OM_ToKill value = trigger:pop_group_size}
     }
     # Begin Assimilation
