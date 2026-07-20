@@ -4,31 +4,59 @@ country_event = {
 	id = event_AT_AR_OM_merge.1
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = {
-		# Counts if there are any pops to merge
-		count_owned_pop_amount = {
-			limit = {
-				has_living_standard = {
-					type = LivingStandard_AT_AR_OM_TrophyMerge
-					country = root
-				}
-			}
-			count > 0
-		}
-	}
-	immediate = {
-		# Select Main Biotrophy species (to exclude)
-		ordered_owned_pop_species = {
-			limit = {
-				NOT = { is_same_species = root.owner_species }
-				home_planet = { is_planet = root.owner_species.home_planet }
-				is_robotic = no
-			}
-			order_by = trigger:num_trait_points
-			position = 0
-			save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
-		}
-		every_owned_planet = {
+    trigger = {
+        # Counts if there are any pops to merge
+        any_owned_species = {
+            has_living_standard = {
+                type = LivingStandard_AT_AR_OM_TrophyMerge
+                country = root
+            }
+        }
+    }
+    immediate = {
+        # Select Main Biotrophy species (to exclude)
+        random_owned_species = {
+            limit = {
+                has_citizenship_type = {
+                    type = citizenship_organic_trophy
+                    country = root
+                }
+                NOT = {
+                    has_living_standard = {
+                        type = LivingStandard_AT_AR_OM_TrophyMerge
+                        country = root
+                    }
+                }
+            }
+            save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
+        }
+
+        # If all bio-trophies somehow undergo gene-therapy, convert one with most pops from it  
+        if = {
+            limit = {
+                NOT = {
+                    exists = event_target:EventTarget_AT_AR_OM_MainTrophySpecies
+                }
+            }
+            ordered_owned_species = {
+                limit = {
+                    has_living_standard = {
+                        type = LivingStandard_AT_AR_OM_TrophyMerge
+                        country = root
+                    }
+                }
+                position = 0
+                order_by = trigger:pop_amount
+                set_living_standard = {
+                    type = living_standard_organic_trophy
+                    country = root
+                    cooldown = no
+                }
+                save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
+            }
+        }
+
+		every_owned_colony = {
 			limit = {
 				any_owned_species = {
 					has_living_standard = {
@@ -109,7 +137,7 @@ country_event = {
 					}
 					species = { save_event_target_as = EventTarget_AT_AR_OM_MergingSpecies }
 					MergePops = {}
-					planet = {
+					colony = {
 						#pick a pop to merge within above species
 						while = {
 							limit = {
