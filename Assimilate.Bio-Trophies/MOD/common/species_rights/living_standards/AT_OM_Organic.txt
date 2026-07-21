@@ -2,7 +2,11 @@ LivingStandard_AT_AR_OM_TrophyMerge = {
 	# intentionally no happiness bonus - gene-therapy is uncomfortable
 	# duplicates pop_modifier from living_standard_organic_trophy
 
-	pop_group_modifier = { pop_category_bio_trophy_consumer_goods_upkeep_add = @living_standard_luxuries_very_high }
+	pop_group_modifier = {
+		custom_tooltip = LivingStandard_AT_AR_OM_TrophyMerge_modifier_custom_tooltip
+		show_only_custom_tooltip = no
+		pop_category_bio_trophy_consumer_goods_upkeep_add = @living_standard_luxuries_very_high
+	}
 	potential = {
 		from? = {
 			has_valid_civic = civic_machine_servitor
@@ -23,16 +27,7 @@ LivingStandard_AT_AR_OM_TrophyMerge = {
 			from = {
 				any_owned_species = {
 					NOT = { is_same_value = root }
-					has_citizenship_type = {
-						type = citizenship_organic_trophy
-						country = from
-					}
-					NOT = {
-						has_living_standard = {
-							type = LivingStandard_AT_AR_OM_TrophyMerge
-							country = from
-						}
-					}
+					AT_OM_species_is_valid_bio_trophy_merge_target = yes
 				}
 			}
 		}

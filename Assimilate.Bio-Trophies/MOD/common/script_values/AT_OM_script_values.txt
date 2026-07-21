@@ -1,0 +1,5 @@
+## replace_scopes = { this = country }
+AT_OM_country_pop_gene_therapy_conversion = {
+    base = @AT_OM_country_pop_gene_therapy_conversion_base
+    add = modifier:AT_OM_country_pop_gene_therapy_conversion_add
+}

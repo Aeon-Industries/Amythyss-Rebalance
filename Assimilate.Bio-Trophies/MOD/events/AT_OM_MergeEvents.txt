@@ -17,16 +17,7 @@ country_event = {
         # Select Main Biotrophy species (to exclude)
         random_owned_species = {
             limit = {
-                has_citizenship_type = {
-                    type = citizenship_organic_trophy
-                    country = root
-                }
-                NOT = {
-                    has_living_standard = {
-                        type = LivingStandard_AT_AR_OM_TrophyMerge
-                        country = root
-                    }
-                }
+                AT_OM_species_is_valid_bio_trophy_merge_target = yes
             }
             save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
         }
@@ -65,50 +56,25 @@ country_event = {
 					}
 				}
 			}
+            set_variable = {
+                which = variable_AT_AR_OM_MergeMaximum
+                value = value:AT_OM_country_pop_gene_therapy_conversion
+            }
 			random_list = {
-                1 = { # 300 * x + 300 pops
-                     set_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 300
-                    }
+                # 300 * x + 300 pops
+                1 = {}
+                # 600 * x + 600 pops
+                1 = {
                     multiply_variable = {
                         which = variable_AT_AR_OM_MergeMaximum
-                        # Scope is Planet but variable is attached to country
-                        value = owner.variable_AT_AR_OM_ExtraConvert
-                    }
-                    change_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 300
+                        value = 2
                     }
                 }
-                1 = { # 600 * x + 600 pops
-                     set_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 600
-                    }
+                # 1200 * x + 1200 pops
+                1 = {
                     multiply_variable = {
                         which = variable_AT_AR_OM_MergeMaximum
-                        # Scope is Planet but variable is attached to country
-                        value = owner.variable_AT_AR_OM_ExtraConvert
-                    }
-                    change_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 600
-                    }
-                }
-                1 = { # 1200 * x + 1200 pops
-                     set_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 1200
-                    }
-                    multiply_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        # Scope is Planet but variable is attached to country
-                        value = owner.variable_AT_AR_OM_ExtraConvert
-                    }
-                    change_variable = {
-                        which = variable_AT_AR_OM_MergeMaximum
-                        value = 1200
+                        value = 4
                     }
                 }
 			}
@@ -158,22 +124,4 @@ country_event = {
 			clear_variable = variable_AT_AR_OM_MergeMaximum
 		}
 	}
-}
-
-country_event = {
-	id = event_AT_AR_OM_merge.2
-	hide_window = yes 
-	is_triggered_only = yes
-
-	trigger = { last_increased_tech = tech_AT_OM_MergeMoreTrophies }
-
-	immediate = { change_variable = { which = variable_AT_AR_OM_ExtraConvert value = 1 } }
-}
-
-country_event = {
-	id = event_AT_AR_OM_merge.3
-	hide_window = yes 
-	is_triggered_only = yes
-
-	immediate = { set_variable = { which = variable_AT_AR_OM_ExtraConvert value = 0 } }
 }
