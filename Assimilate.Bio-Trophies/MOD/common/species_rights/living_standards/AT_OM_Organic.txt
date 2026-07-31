@@ -27,7 +27,7 @@ LivingStandard_AT_AR_OM_TrophyMerge = {
 			from = {
 				any_owned_species = {
 					NOT = { is_same_value = root }
-					AT_OM_species_is_valid_bio_trophy_merge_target = yes
+					AT_AR_OM_species_is_valid_bio_trophy_merge_target = yes
 				}
 			}
 		}
