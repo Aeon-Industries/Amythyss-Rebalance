@@ -15,11 +15,15 @@ tech_AT_OM_MergeMoreTrophies = {
 
 	potential = { has_valid_civic = civic_machine_servitor }
 
+	modifier = { 
+		AT_AR_OM_country_pop_gene_therapy_conversion_add = @AT_AR_OM_country_pop_gene_therapy_conversion_add
+	}
+	
 	prereqfor_desc = {
 		hide_prereq_for_desc = component
 		custom = {
-			title = "unlock_AT_OM_MergeMoreTrophies_desc"
-			desc = "unlock_AT_OM_MergeMoreTrophies_desc"
+			title = "unlock_AT_AR_OM_MergeMoreTrophies_desc"
+			desc = "unlock_AT_AR_OM_MergeMoreTrophies_desc"
 		}
 	}
 }
