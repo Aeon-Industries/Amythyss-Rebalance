@@ -1,4 +1,4 @@
-tech_AT_OM_MergeMoreTrophies = {
+tech_AT_AR_OM_MergeMoreTrophies = {
 	area = society
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
