@@ -16,7 +16,7 @@ tech_AT_OM_MergeMoreTrophies = {
 	potential = { has_valid_civic = civic_machine_servitor }
 
 	modifier = { 
-		AT_OM_country_pop_gene_therapy_conversion_add = @AT_OM_country_pop_gene_therapy_conversion_add
+		AT_AR_OM_country_pop_gene_therapy_conversion_add = @AT_AR_OM_country_pop_gene_therapy_conversion_add
 	}
 	
 	prereqfor_desc = {
