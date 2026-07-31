@@ -22,8 +22,8 @@ tech_AT_OM_MergeMoreTrophies = {
 	prereqfor_desc = {
 		hide_prereq_for_desc = component
 		custom = {
-			title = "unlock_AT_OM_MergeMoreTrophies_desc"
-			desc = "unlock_AT_OM_MergeMoreTrophies_desc"
+			title = "unlock_AT_AR_OM_MergeMoreTrophies_desc"
+			desc = "unlock_AT_AR_OM_MergeMoreTrophies_desc"
 		}
 	}
 }
