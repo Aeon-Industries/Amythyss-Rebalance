@@ -5,7 +5,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
     trigger = {
-        # Counts if there are any pops to merge
+        # Are there any pops to merge?
         any_owned_species = {
             has_living_standard = {
                 type = LivingStandard_AT_AR_OM_TrophyMerge
@@ -20,7 +20,7 @@ country_event = {
             save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
         }
 
-        # If all bio-trophies somehow undergo gene-therapy, convert one with most pops from it  
+        # If all bio-trophies undergo gene-therapy, convert one with most pops from it  
         if = {
             limit = {
                 NOT = { exists = event_target:EventTarget_AT_AR_OM_MainTrophySpecies }
