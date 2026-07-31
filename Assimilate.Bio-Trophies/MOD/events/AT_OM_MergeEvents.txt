@@ -16,18 +16,14 @@ country_event = {
     immediate = {
         # Select Main Biotrophy species (to exclude)
         random_owned_species = {
-            limit = {
-                AT_OM_species_is_valid_bio_trophy_merge_target = yes
-            }
+            limit = { AT_AR_OM_species_is_valid_bio_trophy_merge_target = yes }
             save_event_target_as = EventTarget_AT_AR_OM_MainTrophySpecies
         }
 
         # If all bio-trophies somehow undergo gene-therapy, convert one with most pops from it  
         if = {
             limit = {
-                NOT = {
-                    exists = event_target:EventTarget_AT_AR_OM_MainTrophySpecies
-                }
+                NOT = { exists = event_target:EventTarget_AT_AR_OM_MainTrophySpecies }
             }
             ordered_owned_species = {
                 limit = {
@@ -58,7 +54,7 @@ country_event = {
 			}
             set_variable = {
                 which = variable_AT_AR_OM_MergeMaximum
-                value = value:AT_OM_country_pop_gene_therapy_conversion
+                value = value:AT_AR_OM_country_pop_gene_therapy_conversion
             }
 			random_list = {
                 # 300 * x + 300 pops
